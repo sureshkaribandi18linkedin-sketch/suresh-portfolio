@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Karibandi Suresh — MBA Business Analytics student portfolio.">
+<meta name="theme-color" content="#030712">
+<title>Karibandi Suresh | MBA Business Analytics</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#030712; --bg2:#050b16; --card:rgba(7,14,29,.78);
+  --line:rgba(39,211,255,.18); --line2:rgba(39,211,255,.34);
+  --cyan:#20d7f5; --cyan2:#7eeeff; --text:#f5f8ff;
+  --muted:#8793a8; --green:#45e68b; --max:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+.container{width:min(var(--max),92%);margin:auto}
+
+/* Animated space background */
+#stars{position:fixed;inset:0;width:100%;height:100%;z-index:-3;background:#030712}
+body:before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(circle at 50% 35%,rgba(0,185,235,.11),transparent 32%),radial-gradient(circle at 15% 80%,rgba(0,100,180,.08),transparent 30%)}
+body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:70px 70px;mask-image:linear-gradient(to bottom,transparent,black 15%,black 85%,transparent)}
+
+/* Navbar */
+.navbar{position:fixed;top:0;left:0;right:0;height:72px;z-index:100;background:rgba(2,6,16,.74);border-bottom:1px solid rgba(39,211,255,.13);backdrop-filter:blur(16px)}
+.nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:13px;letter-spacing:.5px;white-space:nowrap}
+.brand-mark{width:30px;height:30px;border:1px solid var(--line2);border-radius:8px;display:grid;place-items:center;color:var(--cyan);box-shadow:0 0 20px rgba(32,215,245,.12)}
+.nav-links{display:flex;align-items:center;gap:27px;color:#8490a4;font-size:11px}
+.nav-links a{position:relative;transition:.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--cyan)}
+.nav-links a.active:after{content:"";position:absolute;left:50%;bottom:-10px;width:4px;height:4px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan);transform:translateX(-50%)}
+.resume-nav{border:1px solid var(--line2);color:var(--cyan);padding:10px 15px;border-radius:8px;font-size:11px;font-weight:700;transition:.2s;white-space:nowrap}
+.resume-nav:hover{background:rgba(32,215,245,.09);box-shadow:0 0 25px rgba(32,215,245,.12)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--cyan);border-radius:8px;padding:7px 9px;cursor:pointer}
+
+/* Common */
+section{padding:105px 0}
+.section-head{text-align:center;margin-bottom:42px}
+.tag{display:inline-flex;align-items:center;gap:7px;color:var(--cyan);border:1px solid var(--line2);background:rgba(12,76,100,.12);padding:7px 12px;border-radius:999px;font-size:10px;letter-spacing:1.2px;text-transform:uppercase}
+.section-head h2{font-size:clamp(31px,5vw,46px);margin:14px 0 10px;letter-spacing:-1.5px}
+.section-head p{max-width:680px;margin:auto;color:var(--muted);font-size:13px;line-height:1.8}
+
+/* Hero */
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:115px;padding-bottom:70px;position:relative}
+.hero-inner{text-align:center;max-width:850px;margin:auto}
+.status{display:inline-flex;align-items:center;gap:8px;color:var(--cyan);border:1px solid var(--line2);background:rgba(11,65,84,.18);border-radius:999px;padding:8px 13px;font-size:10px}
+.status-dot{width:6px;height:6px;background:var(--cyan);border-radius:50%;box-shadow:0 0 12px var(--cyan)}
+.hero h1{font-size:clamp(50px,8vw,88px);line-height:.94;letter-spacing:-4px;margin:25px 0 18px;font-weight:800;text-transform:uppercase}
+.hero h1 .glow{color:var(--cyan);text-shadow:0 0 32px rgba(32,215,245,.4)}
+.hero-role{font-size:clamp(18px,3vw,25px);color:var(--cyan2);margin-bottom:17px}
+.hero-role span{color:#68778e}
+.hero-copy{max-width:690px;margin:auto;color:#8793a8;font-size:13px;line-height:1.8}
+.hero-buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:26px 0 18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid var(--line2);border-radius:8px;padding:12px 17px;font-size:11px;font-weight:700;transition:.25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 26px rgba(32,215,245,.12);border-color:var(--cyan)}
+.btn-primary{background:var(--cyan);color:#031018;border-color:var(--cyan)}
+.socials{display:flex;justify-content:center;gap:9px;margin-top:12px}
+.social{width:39px;height:39px;border:1px solid var(--line);border-radius:9px;display:grid;place-items:center;color:#a5b1c1;font-size:12px;transition:.2s}
+.social:hover{color:var(--cyan);border-color:var(--cyan);transform:translateY(-2px)}
+.resume-preview{width:min(380px,90%);margin:28px auto 0;border:1px solid var(--line);background:rgba(6,15,29,.72);border-radius:14px;padding:10px;display:flex;align-items:center;gap:12px;text-align:left;box-shadow:0 0 35px rgba(0,190,240,.05)}
+.resume-photo{width:62px;height:62px;border-radius:9px;object-fit:cover;object-position:center;background:#000;border:1px solid var(--line2)}
+.resume-info{min-width:0}.resume-info small{display:block;color:var(--cyan);font-size:8px;letter-spacing:1px;margin-bottom:4px}.resume-info strong{display:block;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.resume-info span{display:block;color:var(--muted);font-size:9px;margin-top:4px}.resume-arrow{margin-left:auto;color:#6e8095;font-size:16px}
+.scroll-hint{margin-top:30px;color:#536176;font-size:8px;letter-spacing:2px}.scroll-hint span{display:block;color:var(--cyan);font-size:15px;margin-top:7px;animation:bounce 1.8s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* Cards */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.card{border:1px solid rgba(39,211,255,.15);background:var(--card);border-radius:15px;padding:23px;transition:.25s;position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;left:10%;right:10%;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.5}
+.card:hover{transform:translateY(-5px);border-color:var(--line2);box-shadow:0 18px 50px rgba(0,190,240,.08)}
+.icon{width:39px;height:39px;border:1px solid var(--line);border-radius:9px;display:grid;place-items:center;color:var(--cyan);font-size:13px;margin-bottom:13px}
+.card h3{font-size:16px;margin-bottom:9px}.card p{font-size:12px;line-height:1.8;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.chip{font-size:9px;color:#55dff9;border:1px solid rgba(39,211,255,.25);background:rgba(8,77,101,.12);border-radius:999px;padding:6px 8px}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}
+.about-main{padding:30px}.about-main h3{font-size:23px;margin:13px 0}.about-main p{font-size:13px;line-height:1.9;color:var(--muted);max-width:680px}
+.quick-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}.quick{border:1px solid var(--line);border-radius:10px;padding:12px}.quick span{display:block;color:#63738b;font-size:9px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}.quick strong{font-size:11px}
+.about-side{display:grid;gap:15px}.mini{display:flex;gap:13px;align-items:flex-start}.mini .icon{flex:none;margin:0}.mini h4{font-size:13px;margin-bottom:5px}.mini p{font-size:11px;line-height:1.65}
+
+/* Skills */
+.skill-card{min-height:190px}.skill-level{height:4px;background:#0c1d2c;border-radius:99px;margin-top:17px;overflow:hidden}.skill-level span{display:block;height:100%;width:var(--w);background:linear-gradient(90deg,#0aaed0,var(--cyan));box-shadow:0 0 12px rgba(32,215,245,.4)}
+
+/* Projects */
+.project-card{min-height:245px}.project-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.project-no{font-size:9px;color:#3f7990;letter-spacing:1px}.project-symbol{width:36px;height:36px;border:1px solid var(--line);border-radius:9px;display:grid;place-items:center;color:var(--cyan)}.project-card h3{font-size:18px;margin:15px 0 10px}.project-link{display:inline-flex;gap:5px;color:var(--cyan);font-size:10px;margin-top:18px}
+
+/* Timeline */
+.timeline{max-width:860px;margin:auto;position:relative}.timeline:before{content:"";position:absolute;left:18px;top:0;bottom:0;width:1px;background:linear-gradient(var(--cyan),rgba(32,215,245,.05))}.timeline-item{position:relative;padding-left:56px;margin-bottom:20px}.timeline-dot{position:absolute;left:12px;top:24px;width:13px;height:13px;border-radius:50%;background:var(--cyan);box-shadow:0 0 18px rgba(32,215,245,.7)}.timeline-card{padding:23px}.timeline-meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--cyan);font-size:9px;letter-spacing:.7px}.timeline-card h3{font-size:16px;margin:10px 0 5px}.place{color:#57dff8;font-size:10px;margin-bottom:11px}.timeline-card p{font-size:12px;line-height:1.8;color:var(--muted)}
+
+/* Certifications */
+.cert-card{min-height:135px}.cert-no{color:#2f6d82;font-size:9px;letter-spacing:1px}.cert-card h3{margin-top:10px}
+
+/* Contact */
+.contact-box{max-width:900px;margin:auto;text-align:center;border:1px solid var(--line2);background:rgba(5,14,28,.78);border-radius:18px;padding:44px 24px;box-shadow:0 0 60px rgba(0,180,230,.06)}
+.contact-box h2{font-size:clamp(34px,5vw,48px);margin:14px 0 10px}.contact-box p{color:var(--muted);font-size:12px;line-height:1.7}.contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin-top:24px}.contact-link{border:1px solid var(--line);border-radius:8px;padding:11px 14px;font-size:10px;color:#aeb8c7;transition:.2s}.contact-link:hover{color:var(--cyan);border-color:var(--cyan);transform:translateY(-2px)}
+footer{border-top:1px solid rgba(39,211,255,.1);padding:28px 0;text-align:center;color:#566378;font-size:9px;letter-spacing:.4px}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s ease}.reveal.show{opacity:1;transform:none}
+
+/* Mobile menu */
+.mobile-panel{display:none;position:absolute;top:72px;left:0;right:0;background:rgba(2,6,16,.96);border-bottom:1px solid var(--line);padding:14px 4%;backdrop-filter:blur(15px)}
+.mobile-panel.open{display:block}.mobile-panel a{display:block;padding:13px 0;color:#9aa6b7;font-size:12px;border-bottom:1px solid rgba(39,211,255,.08)}.mobile-panel a:last-child{border-bottom:0}.mobile-panel a:hover{color:var(--cyan)}
+
+@media(max-width:850px){
+ .nav-links,.resume-nav{display:none}.menu-btn{display:block}.grid{grid-template-columns:1fr 1fr}.about-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+ section{padding:85px 0}.hero{padding-top:100px}.hero h1{letter-spacing:-2.5px}.grid{grid-template-columns:1fr}.quick-list{grid-template-columns:1fr}.timeline-item{padding-left:45px}.timeline:before{left:13px}.timeline-dot{left:7px}.timeline-card{padding:19px}.hero-buttons .btn{width:100%;max-width:270px}.resume-preview{width:100%}
+}
+</style>
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="#home" class="brand"><span class="brand-mark">✦</span> KARIBANDI SURESH</a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#certifications">Certifications</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="resume-nav" href="KARIBANDI_SURESH_Resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+  </div>
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#certifications">Certifications</a><a href="#contact">Contact</a>
+    <a href="KARIBANDI_SURESH_Resume.pdf" target="_blank" rel="noopener">View Resume ↗</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-inner">
+      <div class="reveal">
+        <span class="status"><span class="status-dot"></span> MBA BUSINESS ANALYTICS STUDENT</span>
+        <h1>KARIBANDI<br><span class="glow">SURESH</span></h1>
+        <div class="hero-role">&gt; Business Analytics <span>|</span> MBA Student</div>
+        <p class="hero-copy">Currently pursuing an MBA in Business Analytics and building practical skills in Python, SQL and Advanced Excel, with hands-on accounting experience in Tally ERP and GST return filing.</p>
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="#projects">View Projects →</a>
+          <a class="btn" href="KARIBANDI_SURESH_Resume.pdf" target="_blank" rel="noopener">View Resume ↗</a>
+          <a class="btn" href="#contact">Contact Me</a>
+        </div>
+        <div class="socials">
+          <a class="social" href="https://www.linkedin.com/in/suresh-karibandi-a8568543a" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          <a class="social" href="mailto:sureshkaribandi436@gmail.com" aria-label="Email">✉</a>
+          <a class="social" href="tel:+918074887667" aria-label="Phone">☎</a>
+        </div>
+        <a class="resume-preview" href="KARIBANDI_SURESH_Resume.pdf" target="_blank" rel="noopener" aria-label="Open resume">
+          <img class="resume-photo" src="profile.jpg" alt="Karibandi Suresh">
+          <div class="resume-info"><small>RESUME PREVIEW · CLICK TO VIEW</small><strong>KARIBANDI SURESH</strong><span>MBA Business Analytics · Aditya University</span></div>
+          <span class="resume-arrow">↗</span>
+        </a>
+        <div class="scroll-hint">SCROLL<span>⌄</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-head reveal"><span class="tag">About</span><h2>About Me</h2><p>Business analytics student combining analytical learning with practical accounting and business operations experience.</p></div>
+      <div class="about-grid">
+        <div class="card about-main reveal">
+          <div class="icon">◎</div><h3>MBA Business Analytics Student</h3>
+          <p>I am currently pursuing an MBA in Business Analytics at Aditya University. My current learning focus includes Python, SQL and Advanced Excel. I am interested in using data to understand business problems and support better decisions.</p>
+          <div class="quick-list">
+            <div class="quick"><span>Education</span><strong>MBA – Business Analytics</strong></div>
+            <div class="quick"><span>University</span><strong>Aditya University</strong></div>
+            <div class="quick"><span>Experience</span><strong>6 Months · Data Creations</strong></div>
+            <div class="quick"><span>Languages</span><strong>English · Telugu</strong></div>
+          </div>
+        </div>
+        <div class="about-side">
+          <div class="card mini reveal"><div class="icon">⌘</div><div><h4>Practical Experience</h4><p>Day-to-day retail accounting, financial records and monthly GST return filing.</p></div></div>
+          <div class="card mini reveal"><div class="icon">↗</div><div><h4>Career Goal</h4><p>Looking for opportunities to apply analytical skills, gain practical experience and contribute to an organization.</p></div></div>
+          <div class="card mini reveal"><div class="icon">＋</div><div><h4>Strengths</h4><p>Good listener, problem solving, willingness to help, teamwork and adaptability.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <div class="section-head reveal"><span class="tag">Skills</span><h2>What I Work With</h2><p>My current technical, business and professional skill set.</p></div>
+      <div class="grid">
+        <div class="card skill-card reveal"><div class="icon">Py</div><h3>Python</h3><p>Programming and analytics foundation for data work.</p><div class="chips"><span class="chip">Python</span><span class="chip">Analytics</span></div><div class="skill-level"><span style="--w:72%"></span></div></div>
+        <div class="card skill-card reveal"><div class="icon">SQL</div><h3>SQL</h3><p>Working with databases, queries and data analysis.</p><div class="chips"><span class="chip">Queries</span><span class="chip">Joins</span><span class="chip">GROUP BY</span></div><div class="skill-level"><span style="--w:72%"></span></div></div>
+        <div class="card skill-card reveal"><div class="icon">X</div><h3>Advanced Excel</h3><p>Using Excel for business data work and analysis.</p><div class="chips"><span class="chip">Lookups</span><span class="chip">Pivot Tables</span></div><div class="skill-level"><span style="--w:78%"></span></div></div>
+        <div class="card skill-card reveal"><div class="icon">₹</div><h3>Accounting</h3><p>Practical accounting operations from internship experience.</p><div class="chips"><span class="chip">Tally ERP</span><span class="chip">GST</span></div><div class="skill-level"><span style="--w:76%"></span></div></div>
+        <div class="card skill-card reveal"><div class="icon">◌</div><h3>Business Skills</h3><p>Business understanding, problem solving and communication.</p><div class="chips"><span class="chip">Problem Solving</span><span class="chip">Communication</span></div><div class="skill-level"><span style="--w:75%"></span></div></div>
+        <div class="card skill-card reveal"><div class="icon">+</div><h3>Professional Skills</h3><p>Teamwork, adaptability and willingness to learn.</p><div class="chips"><span class="chip">Teamwork</span><span class="chip">Adaptability</span></div><div class="skill-level"><span style="--w:80%"></span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-head reveal"><span class="tag">Projects</span><h2>Selected Projects</h2><p>Academic projects connecting business questions with data analysis.</p></div>
+      <div class="grid">
+        <article class="card project-card reveal">
+          <div class="project-top"><span class="project-no">#01 · CONJOINT ANALYSIS</span><span class="project-symbol">▣</span></div>
+          <h3>Mobile Phone Consumer Preference Analysis</h3>
+          <p>Conjoint analysis project focused on understanding consumer preferences for mobile phones by studying product attributes and purchase preferences.</p>
+          <div class="chips"><span class="chip">R</span><span class="chip">Conjoint Analysis</span><span class="chip">Survey</span><span class="chip">Consumer Preference</span></div>
+        </article>
+        <article class="card project-card reveal">
+          <div class="project-top"><span class="project-no">#02 · BUSINESS ANALYSIS</span><span class="project-symbol">◫</span></div>
+          <h3>Insurance Policy Awareness and Adoption Analysis</h3>
+          <p>Worked with village survey data to understand insurance awareness and adoption patterns.</p>
+          <div class="chips"><span class="chip">Survey Data</span><span class="chip">Analysis</span><span class="chip">Insurance</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <div class="section-head reveal"><span class="tag">Experience</span><h2>Work History</h2><p>Practical accounting experience from a six-month internship.</p></div>
+      <div class="timeline">
+        <div class="timeline-item reveal"><span class="timeline-dot"></span><div class="card timeline-card"><div class="timeline-meta"><span>ACCOUNTS INTERN</span><span>6 MONTHS</span></div><h3>Data Creations</h3><div class="place">Accounting & Business Operations</div><p>Handled day-to-day retail accounting work and maintained financial records. Assisted with monthly GST return filing and gained practical experience in accounting operations.</p><div class="chips"><span class="chip">Tally ERP</span><span class="chip">GST Return Filing</span><span class="chip">Retail Accounts</span></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <div class="section-head reveal"><span class="tag">Education</span><h2>Education</h2><p>Academic background.</p></div>
+      <div class="timeline">
+        <div class="timeline-item reveal"><span class="timeline-dot"></span><div class="card timeline-card"><div class="timeline-meta"><span>2025 – 2027</span><span>PURSUING</span></div><h3>MBA – Business Analytics</h3><div class="place">Aditya University, Surampalem</div><p>Currently pursuing MBA with a focus on Business Analytics.</p></div></div>
+        <div class="timeline-item reveal"><span class="timeline-dot"></span><div class="card timeline-card"><div class="timeline-meta"><span>2019 – 2022</span><span>CGPA 8.72</span></div><h3>B.A.</h3><div class="place">Arts College Rajahmundry · Adikavi Nannaya University</div></div></div>
+        <div class="timeline-item reveal"><span class="timeline-dot"></span><div class="card timeline-card"><h3>Intermediate</h3><div class="place">Government Junior College, Gokavaram</div></div></div>
+        <div class="timeline-item reveal"><span class="timeline-dot"></span><div class="card timeline-card"><div class="timeline-meta"><span>SSC</span><span>CGPA 9.8</span></div><h3>APRS School, Bhupathipalem</h3></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="container">
+      <div class="section-head reveal"><span class="tag">Certifications</span><h2>Certifications</h2><p>Certifications listed in my resume.</p></div>
+      <div class="grid">
+        <div class="card cert-card reveal"><span class="cert-no">01</span><h3>NISM</h3></div>
+        <div class="card cert-card reveal"><span class="cert-no">02</span><h3>IBM</h3></div>
+        <div class="card cert-card reveal"><span class="cert-no">03</span><h3>Tally ERP</h3></div>
+        <div class="card cert-card reveal"><span class="cert-no">04</span><h3>HP LIFE & HP Foundations</h3></div>
+        <div class="card cert-card reveal"><span class="cert-no">05</span><h3>Cambridge International Qualification</h3></div>
+        <div class="card cert-card reveal"><span class="cert-no">06</span><h3>My Bharat Budget Quest</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box reveal">
+        <span class="tag">Contact</span><h2>Let's connect.</h2>
+        <p>Feel free to contact me for career opportunities, professional connections and collaborations.</p>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:sureshkaribandi436@gmail.com">✉ Email</a>
+          <a class="contact-link" href="tel:+918074887667">☎ 8074887667</a>
+          <a class="contact-link" href="https://www.linkedin.com/in/suresh-karibandi-a8568543a" target="_blank" rel="noopener">in LinkedIn</a>
+          <a class="contact-link" href="KARIBANDI_SURESH_Resume.pdf" target="_blank" rel="noopener">▣ Resume</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 Karibandi Suresh · MBA Business Analytics · Built with HTML, CSS & JavaScript</footer>
+
+<script>
+// Animated star field inspired by the reference portfolio.
+const canvas=document.getElementById('stars');
+const ctx=canvas.getContext('2d');
+let stars=[]; let w=0,h=0; let dpr=1;
+function resizeStars(){
+  dpr=Math.min(window.devicePixelRatio||1,2); w=innerWidth; h=innerHeight;
+  canvas.width=w*dpr; canvas.height=h*dpr; canvas.style.width=w+'px'; canvas.style.height=h+'px';
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  const count=Math.min(180,Math.max(70,Math.floor(w*h/9000)));
+  stars=Array.from({length:count},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.35+.25,a:Math.random()*.7+.15,s:Math.random()*.012+.002,p:Math.random()*Math.PI*2}));
+}
+function drawStars(t){
+  ctx.clearRect(0,0,w,h);
+  for(const s of stars){
+    const alpha=s.a*(.55+.45*Math.sin(t*s.s+s.p));
+    ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2); ctx.fillStyle=`rgba(32,215,245,${alpha})`; ctx.fill();
+  }
+  requestAnimationFrame(drawStars);
+}
+resizeStars(); addEventListener('resize',resizeStars); requestAnimationFrame(drawStars);
+
+// Scroll reveal.
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('show')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// Mobile menu.
+const menuBtn=document.getElementById('menuBtn');
+const mobilePanel=document.getElementById('mobilePanel');
+menuBtn.addEventListener('click',()=>mobilePanel.classList.toggle('open'));
+document.querySelectorAll('.mobile-panel a').forEach(a=>a.addEventListener('click',()=>mobilePanel.classList.remove('open')));
+
+// Active navigation link while scrolling.
+const navLinks=[...document.querySelectorAll('.nav-links a')];
+const sections=[...document.querySelectorAll('main section[id]')];
+const navObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      navLinks.forEach(link=>link.classList.toggle('active',link.getAttribute('href')==='#'+entry.target.id));
+    }
+  });
+},{rootMargin:'-35% 0px -55% 0px',threshold:0});
+sections.forEach(s=>navObserver.observe(s));
+</script>
+</body>
+</html>
